@@ -12,6 +12,8 @@ print "$greeting\n";
 my @fruits = ("apple", "banana", "orange");
 print "Fruits: " . join(", ", @fruits) . "\n";
 
+# 234
+
 # Hash demonstration
 my %person = (
     name    => "John Doe",
