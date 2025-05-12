@@ -1,8 +1,8 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use lib '.';
-use UserCRUD;
+use lib qw(. db);
+use crud::UserCRUD;
 
 # Create database connection
 my $db = UserCRUD->new(

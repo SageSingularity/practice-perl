@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use base 'OracleDB';
 use Carp;
+use DBD::Oracle qw(:ora_types);
 
 # Create a new user
 sub create_user {

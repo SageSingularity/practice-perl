@@ -14,6 +14,8 @@ CREATE TABLE users (
 -- Create index on email
 CREATE INDEX idx_users_email ON users(email);
 
+SELECT * FROM users WHERE email = 'admin@example.com';
+
 -- Add comments
 COMMENT ON TABLE users IS 'Stores user information';
 COMMENT ON COLUMN users.user_id IS 'Primary key for users table';
