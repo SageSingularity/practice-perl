@@ -8,7 +8,7 @@ use Carp;
 sub new {
     my ($class, %params) = @_;
     my $self = {
-        _dsn      => $params{dsn}      || 'dbi:Oracle:host=localhost;sid=XE',
+        _dsn      => $params{dsn}      || 'dbi:Oracle:host=127.0.0.1;port=1521;sid=XE',
         _username => $params{username} || '',
         _password => $params{password} || '',
         _dbh      => undef,

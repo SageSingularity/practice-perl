@@ -16,6 +16,13 @@ sub create_user {
         VALUES (:username, :email, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
         RETURNING user_id INTO :user_id
     };
+
+    # Prepare PL/SQL block that calls the procedure
+    my $plsql = q{
+        BEGIN
+            greet_user(?);
+        END;
+    };
     
     my $sth = $dbh->prepare($sql);
     $sth->bind_param(':username', $user_data{username});
