@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 
+# YOU CAN RUN THIS SCRIPT WITH THE FOLLOWING COMMAND (LINUX):
+# perl learn_perl_script.pl
+
 # Always use strict and warnings when debugging
 use strict; # This line tells Perl to use strict mode, which helps catch common errors.
 use warnings; # This line tells Perl to use warnings, which helps catch potential issues.

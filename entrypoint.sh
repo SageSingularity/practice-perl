@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 
 # Colors for output
 RED='\033[0;31m'
@@ -41,4 +41,3 @@ echo -e "${BLUE}Running Perl script...${NC}"
 perl -U run.pl
 
 echo -e "${GREEN}Done${NC}"
-

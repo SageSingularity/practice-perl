@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# YOU CAN RUN THIS SCRIPT WITH THE FOLLOWING COMMAND (LINUX):
+# ./learn_bash_script.sh
+
 # Use strict mode to catch common errors
 set -euo pipefail # This line sets the script to exit immediately if any command returns a non-zero exit status, and it also prevents the script from using undefined variables.
 IFS=$'\n\t' # This line sets the Internal Field Separator (IFS) to a newline and tab character, which is used to split strings into arrays.

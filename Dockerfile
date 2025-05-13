@@ -1,7 +1,7 @@
 FROM oraclelinux:8
 
 # Install Perl, DBI, and build tools
-RUN dnf install -y perl perl-DBI gcc make wget unzip && \
+RUN dnf install -y perl perl-DBI gcc make wget unzip dos2unix && \
     dnf clean all
 
 # Install Oracle Instant Client
@@ -38,6 +38,9 @@ WORKDIR /usr/src/practice-perl
 # Copy application files
 COPY . .
 
-# Make start script executable
-RUN chmod +x entrypoint.sh
+# Convert line endings and make start script executable
+RUN dos2unix entrypoint.sh && \
+    chmod +x entrypoint.sh
 
+# Set the entrypoint
+ENTRYPOINT ["./entrypoint.sh"]
