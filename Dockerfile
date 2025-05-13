@@ -33,5 +33,11 @@ RUN cpan DBD::Oracle
 RUN printf '#!/usr/bin/perl\nuse strict;\nuse warnings;\n\nprint "Testing Perl modules...\n";\n\neval {\n    require DBI;\n    print "DBI version: $DBI::VERSION\n";\n} or do {\n    print "Error loading DBI: $@\n";\n};\n\neval {\n    require DBD::Oracle;\n    print "DBD::Oracle version: $DBD::Oracle::VERSION\n";\n} or do {\n    print "Error loading DBD::Oracle: $@\n";\n};\n\nprint "\nEnvironment variables:\n";\nprint "ORACLE_HOME: $ENV{ORACLE_HOME}\n";\nprint "LD_LIBRARY_PATH: $ENV{LD_LIBRARY_PATH}\n";\nprint "PATH: $ENV{PATH}\n";' > /usr/local/bin/test-perl-oracle && \
     chmod +x /usr/local/bin/test-perl-oracle
 
-# Keep container running
-CMD ["tail", "-f", "/dev/null"]
+WORKDIR /usr/src/practice-perl
+
+# Copy application files
+COPY . .
+
+# Make start script executable
+RUN chmod +x entrypoint.sh
+
