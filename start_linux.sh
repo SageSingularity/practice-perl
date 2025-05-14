@@ -1,5 +1,6 @@
-echo -e "Building the docker container..."
-docker build -t oracle-perl-app .
+#!/bin/bash
 
-echo -e "Starting the docker container..."
-docker run --rm oracle-perl-app
+echo -e "Starting the application with Docker Compose..."
+docker-compose up --build
+
+# To stop the container, press Ctrl+C

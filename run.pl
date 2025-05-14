@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use lib qw(. db);
 use OracleDB;
+use JSON;
 
 # This is the main script that runs the Project/Demo
 
@@ -56,3 +57,31 @@ print "====================================\n\n";
 
 # Disconnect from database
 $db->disconnect(); 
+
+# Step 1: Define the data (as a hash)
+my %data = (
+    name   => 'Melissa the Mechanic',
+    title  => 'Shield Technician',
+    status => 'Lost in Wormhole J142118',
+);
+
+# Print the data in a readable format
+print "Data:\n";
+foreach my $key (keys %data) {
+    print "  $key: $data{$key}\n";
+}
+
+# Step 2: Convert to JSON
+my $json_text = encode_json(\%data);
+print "\nJSON: $json_text\n";
+
+# Step 3: Write to a file
+my $output_dir = '/usr/src/practice-perl/output';
+mkdir $output_dir unless -d $output_dir;  # Create output directory if it doesn't exist
+my $output_file = "$output_dir/status_report.json";
+
+open(my $fh, '>', $output_file) or die "Cannot open file: $!";
+print $fh $json_text;
+close($fh);
+
+print "\nFile written successfully to: $output_file\n";

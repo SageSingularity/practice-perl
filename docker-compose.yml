@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  perl-app:
+    build: .
+    volumes:
+      - ./output:/usr/src/practice-perl/output
+    environment:
+      - TZ=UTC
+    extra_hosts:
+      - "host.docker.internal:host-gateway" 

@@ -1,7 +1,7 @@
 FROM oraclelinux:8
 
 # Install Perl, DBI, and build tools
-RUN dnf install -y perl perl-DBI gcc make wget unzip dos2unix && \
+RUN dnf install -y perl perl-DBI perl-JSON gcc make wget unzip dos2unix && \
     dnf clean all
 
 # Install Oracle Instant Client

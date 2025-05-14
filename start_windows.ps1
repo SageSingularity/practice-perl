@@ -1,5 +1,6 @@
-Write-Host "Building the docker container..."
-docker build -t oracle-perl-app .
+# Windows PowerShell script to start the application
 
-Write-Host "Starting the docker container..."
-docker run --rm -it oracle-perl-app
+Write-Host "Starting the application with Docker Compose..." -ForegroundColor Green
+docker-compose up --build
+
+# To stop the container, press Ctrl+C
