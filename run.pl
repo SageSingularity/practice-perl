@@ -8,10 +8,25 @@ use JSON;
 # This is the main script that runs the Project/Demo
 
 # Create database connection
+my $db_host = $ENV{DB_HOST} || 'host.docker.internal';
+my $db_port = $ENV{DB_PORT} || '1521';
+my $db_sid = $ENV{DB_SID} || 'XE';
+my $db_user = $ENV{DB_USER} || 'SYSTEM';
+my $db_password = $ENV{DB_PASSWORD} || 'myCurrentPassword$523';
+
+# Print connection details for debugging
+print "\nDatabase Connection Details:\n";
+print "==========================\n";
+print "Host: $db_host\n";
+print "Port: $db_port\n";
+print "SID: $db_sid\n";
+print "User: $db_user\n";
+print "==========================\n\n";
+
 my $db = OracleDB->new(
-    dsn      => 'dbi:Oracle:host=host.docker.internal;sid=XE;port=1521',
-    username => 'SYSTEM',
-    password => 'myCurrentPassword$523'
+    dsn      => "dbi:Oracle:host=$db_host;sid=$db_sid;port=$db_port",
+    username => $db_user,
+    password => $db_password
 );
 
 # Connect to database

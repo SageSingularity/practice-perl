@@ -5,7 +5,11 @@ services:
     build: .
     volumes:
       - ./output:/usr/src/practice-perl/output
+    env_file:
+      - config.env
+    # Remove default environment variables to prevent overriding config.env
     environment:
       - TZ=UTC
+    # Special handling for Linux hosts
     extra_hosts:
       - "host.docker.internal:host-gateway" 
